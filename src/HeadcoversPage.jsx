@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { LeatherColorIndex } from "./LeatherColorIndex";
+import { LeatherColorNew } from "./LeatherColorNew";
 
 export function HeadcoversPage() {
 
@@ -10,9 +11,9 @@ export function HeadcoversPage() {
   const [leatherColor, setLeatherColor] = useState([]);
  
   const handleLeatherColorIndex = () => {
-    console.log("handleLeatherColorIndex");
+    // console.log("handleLeatherColorIndex");
     axios.get("http://localhost:3000/leathercolors.json").then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       setLeatherColor(response.data);
     });
   };
@@ -22,7 +23,11 @@ export function HeadcoversPage() {
   return (
     <main>
       <h1>Welcome to the start of our app!</h1>
+      <div>
+        Is this cutomizable?: <input type="checkbox"/>
+      </div>
       <LeatherColorIndex leathercolors={leatherColor}/>
+      {/* <LeatherColorNew /> */}
     </main>
   )
 }
